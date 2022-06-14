@@ -1,7 +1,8 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-function Cart({ cart, setCart, totalPrice, setTotalPrice }) {
+function Cart({ cart, setCart,setTotalPrice,setProdName}) {
   let total_price = 0;
+  let prodList=[];
   function removeList(id) {
     setCart(cart.filter((item, index) => index !== id));
   }
@@ -19,6 +20,7 @@ function Cart({ cart, setCart, totalPrice, setTotalPrice }) {
         <tbody className="m-2">
           {cart.map((item, index) => {
             total_price += item.price;
+            prodList.push(item.prod_name);
             return (
               <tr key={index}>
                 <th>
@@ -47,7 +49,7 @@ function Cart({ cart, setCart, totalPrice, setTotalPrice }) {
         <NavLink
           to="/checkout"
           className="btn bg-primary"
-          onClick={setTotalPrice(total_price)}
+          onClick={()=>setTotalPrice((total_price/78.0046).toFixed(2),setProdName(prodList))}
         >
           CheckOut
         </NavLink>
