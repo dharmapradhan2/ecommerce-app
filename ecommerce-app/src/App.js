@@ -5,6 +5,8 @@ import ProductsPage from "./Component/ProductsPage";
 import Cart from "./Component/Cart";
 import Navbar from "./Component/Navbar";
 import Checkout from "./Component/Checkout";
+import SucessPage from "./Component/SucessPage";
+import ErrorPage from "./Component/ErrorPage";
 import { Route, Routes } from "react-router-dom";
 import { useState } from "react";
 function App() {
@@ -40,6 +42,8 @@ function App() {
             path="/checkout"
             element={<Checkout totalPrice={totalPrice} prodName={prodName} />}
           ></Route>
+          <Route path="/error" element={<ErrorPage />}></Route>
+          <Route path="/sucess" element={<SucessPage />}></Route>
         </Routes>
       </div>
     </PayPalScriptProvider>

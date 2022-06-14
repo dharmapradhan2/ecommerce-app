@@ -18,11 +18,13 @@ function Checkout({ totalPrice, prodName }) {
     // display sucess message and redirect to sucess page
     alert("Thank you for your purches");
     window.location.reload();
-    window.location.href="/";
+    window.location.href = "/sucess";
   }
   if (error) {
     // display error message & redirect to error page
     alert(`error : ${error}`);
+    window.location.reload();
+    window.location.href = "/error";
   }
   return (
     <div className="container p-1 m-2 align-center">
@@ -66,6 +68,8 @@ function Checkout({ totalPrice, prodName }) {
         }}
         onCancel={() => {
           // displaying cancel message and redirect to cancel page or back to cart
+          window.location.reload();
+          window.location.href = "/error";
         }}
       />
     </div>
